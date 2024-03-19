@@ -1,0 +1,31 @@
+.main_header_div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:var( --base-black);
+    background-color: var(--base-white);
+    height: 4rem;
+    // border-bottom: 0.1px solid var(--gray-neutral-400);
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1;
+    background: var(--base-white);
+
+    .main_header_div_child_1 {
+        padding: 0.5rem;
+        margin-left: 2rem;
+    }
+
+    .main_header_div_child_2 {
+        display: flex;
+        padding: 0.5rem;
+        gap: 0.5rem;
+        margin-right: 2rem;
+
+        .main_header_div_child_2_sub {
+            margin-top: 1.5rem;
+        }
+    }
+}
+
