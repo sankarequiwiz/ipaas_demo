@@ -1,0 +1,70 @@
+.steps_css {
+    padding: 5px;
+}
+
+.mainbanner {
+    text-align: left;
+    background-color: var(--gray-50);
+    padding: 2rem 2rem 2rem 6rem;
+
+
+    .mainbanner_child_1 {
+        margin-top: 2rem;
+    }
+}
+
+.Inputorg {
+    width: 24rem;
+    height: 2.5rem;
+}
+
+.paragraphtag {
+    font-weight: 400;
+}
+
+.paragraphhead {
+    font-weight: 700;
+}
+
+.accessbox {
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    text-wrap: wrap;
+    align-items: start;
+    text-align: justify;
+    gap: .5rem;
+    padding: 1rem;
+}
+
+.accessboxssp {
+    height: 3rem;
+    margin-top: 3rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+    .ttssp {
+        text-align: center;
+        margin: auto;
+    }
+}
+
+.stepperbelow {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: var(--base-white);
+    border-top: 1.5px solid var(--gray-100);
+    bottom: 0;
+    left: 0;
+    z-index: 11;
+}
+
+.Accesstype_dev_sepa{
+    display: flex;
+    gap: 2rem;
+}
