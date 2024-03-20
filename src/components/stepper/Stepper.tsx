@@ -41,10 +41,15 @@ const Stepper: React.FC = () => {
     const [data, setData] = useState<any>(undefined);
     const [connected, setConnected] = React.useState<'failed' | 'success' | false>('failed');
     const submitRef = React.useRef<any>(null);
+    const [isOAuthSelected, setIsOAuthSelected] = useState(false);
 
 
     const next = () => {
-        handleUpdateFieldChange('current', `${current + 1}`)
+        if (isOAuthSelected) {
+            window.location.href = 'https://github.com/login/oauth/authorize?client_id=3b1db9e7e61e84a79656&scope=repo&redirect_uri=http://localhost:3000';
+        } else {
+            handleUpdateFieldChange('current', `${current + 1}`);
+        }
     };
 
     const prev = () => {
@@ -119,6 +124,9 @@ const Stepper: React.FC = () => {
             MainBannerComponent = MainBannerDetails;
     }
 
+    const handleOAuthSelect = (isSelected: boolean) => {
+        setIsOAuthSelected(isSelected);
+    };
     return (
         <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', position: 'relative' }}>
             <Mainheader />
@@ -137,6 +145,7 @@ const Stepper: React.FC = () => {
                         connected={connected}
                         ref={submitRef}
                         name={data?.name}
+                        onOAuthSelect={handleOAuthSelect}
                     />
                 )
             }
@@ -160,9 +169,12 @@ const Stepper: React.FC = () => {
                                 </Button>
                             )
                         }
-                        <Button type='primary' onClick={() => next()} {...getButtonProps().next()}>
+                        {isOAuthSelected===true? <Button type='primary' onClick={() => next()} {...getButtonProps().next()}>
+                            Authenticate Github
+                        </Button>:<Button type='primary' onClick={() => next()} {...getButtonProps().next()}>
                             Next
-                        </Button>
+                        </Button>}
+                        
                     </div>
                 )}
 
@@ -182,7 +194,6 @@ const MainBannerReview = React.forwardRef((props: any, ref) => {
     const payload = React.useMemo(() => {
         const tmp = {
             name: props.orgName,
-            // externalKey: props.data.id,
             "subOrganization": {
                 "name": "Phonepe Inc",
                 "externalKey": "l946c690-32d0-4960-a447-48fe4fa9fd43"
@@ -353,6 +364,7 @@ function MainBannerDetails({
     orgName,
     selectedType,
     name,
+    onOAuthSelect,
 }: any) {
 
     const labelMapper: any = {
@@ -361,9 +373,13 @@ function MainBannerDetails({
         }
     }
 
-
     const handleButtonClick = (type: string) => {
         handleUpdateFieldChange('accessType', type === selectedType ? '' : type);
+        if (type === 'OAuth') {
+            onOAuthSelect(true);
+        } else {
+            onOAuthSelect(false);
+        }
     };
    
 

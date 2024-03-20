@@ -6,6 +6,8 @@ import IntegrationSuccess from './components/IntegrationSuccess';
 import Mainheader from './components/header/Index';
 import Filiterprofiles from './components/profilefilter/filiter';
 import { ConfigProvider } from 'antd';
+import ShowRepositories from './components/ShowRepository';
+
 
 
 
@@ -26,6 +28,9 @@ function App() {
           <Route path="/" element={<Basepath />} />
           <Route path="/serviceProfiles/:profileId/integration/create" element={<Stepper />} />
           <Route path="/Integration_completed" element={<IntegrationSuccess />} />
+          <Route path="/ProviderAuthenticationCompleted" element={<ShowRepositories />} />
+
+          
         </Routes>
       </ConfigProvider>
     </>

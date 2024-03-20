@@ -7,7 +7,7 @@ const IntegrationSuccess: React.FC = () => {
     <div className='border-4 border-gray-500 bg-slate-700 h-[25rem]  text-white w-[70rem] mx-auto flex items-center justify-center hover:bg-slate-800'>
         <div className="text-center ">
             <IoCheckmarkDoneCircleSharp className='w-[3.5rem] h-[3.5rem] text-black-700 mx-auto text-green-600' />
-            <h1 className='text-6xl'>Integration Completed</h1>
+            <h1 className='text-6xl'>Integration Successfully Created</h1>
             <p className='text-4xl mt-2'>Please check the status on the dashboard.</p>
             <Link to={'/'}>
             <Button

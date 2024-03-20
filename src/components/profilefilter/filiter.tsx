@@ -4,7 +4,7 @@ import { Checkbox } from 'antd';
 import API from './services/index';
 import { Card } from 'antd';
 import { Link } from 'react-router-dom';
-import { Input, Space } from 'antd';
+import { Input, Space,Button } from 'antd';
 import "./styles.scss"
 const { Meta } = Card;
 const { Search } = Input;
@@ -21,6 +21,8 @@ const FilterProfiles: React.FC = () => {
     const [data, setData] = useState<any[]>([]);
     const [searched, setSearched] = React.useState<string>('');
     const [filterState, setFilterState] = React.useState(initialFilterState);
+    
+
 
 
     const onChange = (e: string[]) => {
@@ -58,13 +60,17 @@ const FilterProfiles: React.FC = () => {
         }
     }
 
+    
+
     const filiterbyNames = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const inputValue = e.target.value;
         setSearched(inputValue);
     };
+  
 
     React.useEffect(() => {
         getData();
+        
     }, [searched, filterState]);
 
     return (
@@ -88,6 +94,10 @@ const FilterProfiles: React.FC = () => {
                         className='filiter_main_div_child_1_sub'
                         style={{ display: 'flex', flexDirection: 'column' }}
                     />
+                    {/* <Link to="/ProviderAuthenticationCompleted">
+                    <Button>page</Button>
+                    </Link> */}
+                   
                 </div>
                 <div className='filiter_main_div_child_2'>
                     <p className="header">Frequent Integrations:</p>
