@@ -13,15 +13,15 @@ const { Title, Paragraph } = Typography;
 
 const steps = [
     {
-        title: 'Details',
+        title: 'Integration details',
         content: 'First-content',
     },
     {
-        title: 'Access type',
+        title: 'Access details',
         content: 'Second-content',
     },
     {
-        title: 'Review',
+        title: 'Review integration',
         content: 'Last-content',
     },
 ];
@@ -46,7 +46,7 @@ const Stepper: React.FC = () => {
 
     const next = () => {
         if (isOAuthSelected) {
-            window.location.href = 'https://github.com/login/oauth/authorize?client_id=3b1db9e7e61e84a79656&scope=repo&redirect_uri=http://localhost:3000';
+            window.location.href = 'https://github.com/login/oauth/authorize?client_id=3b1db9e7e61e84a79656&scope=repo&redirect_uri=http://192.168.29.232:3000/ProviderAuthenticationCompleted';
         } else {
             handleUpdateFieldChange('current', `${current + 1}`);
         }
@@ -222,9 +222,9 @@ const MainBannerReview = React.forwardRef((props: any, ref) => {
     const createIntegration = async () => {
         try {
             await API.searchservices.createIntegration(payload);
-            message.success('Integration Successfully Done')
+            message.success('Integration Successfully Created')
 
-            setTimeout(navigate, 1000, '/Integration_completed')
+            setTimeout(navigate, 1000, '/IntegrationCompleted')
         } catch (error: any) {
             let errMsg = 'Integration Failed'
             if (error.response.data && Array.isArray(error.response.data)) {
@@ -239,7 +239,7 @@ const MainBannerReview = React.forwardRef((props: any, ref) => {
 
     return (
         <div className='mainbanner' style={{ flex: 1 }}>
-            <Descriptions title={<Title level={3}>Review Integration</Title>}>
+            <Descriptions title={<Title level={3}>Review integration</Title>}>
                 <Descriptions.Item label="Name">{payload.name}</Descriptions.Item>
                 <Descriptions.Item label="Access Type">{payload.target.accessPoint.accessPointConfig.type}</Descriptions.Item>
                 <Descriptions.Item label="API Key">{payload.target.accessPoint.apiKey}</Descriptions.Item>
@@ -334,7 +334,7 @@ function MainBannerAccessType({
 
     return (
         <div className='mainbanner' style={{ flex: 1 }} >
-            <Title level={3}>Access type</Title>
+            <Title level={3}>Enter access Details</Title>
             <div className='mainbanner_child_1'>
                 {accessPointConfigs.map((config: any, index: number) => {
                     return <p key={index} className='paragraphtag'>{config.label}:</p>

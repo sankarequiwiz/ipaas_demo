@@ -1,13 +1,17 @@
 import React from 'react';
-import { IoCheckmarkDoneCircleSharp } from "react-icons/io5";
 import { Link } from 'react-router-dom';
+import Mainheader from './header/Index';
+import { Alert, Space} from 'antd';
 
 const IntegrationSuccess: React.FC = () => {
   return (
     <div className='border-4 border-gray-500 bg-slate-700 h-[25rem]  text-white w-[70rem] mx-auto flex items-center justify-center hover:bg-slate-800'>
+       <Mainheader />
         <div className="text-center ">
-            <IoCheckmarkDoneCircleSharp className='w-[3.5rem] h-[3.5rem] text-black-700 mx-auto text-green-600' />
-            <h1 className='text-6xl'>Integration Successfully Created</h1>
+            <Space direction="vertical" style={{ width: '100%' }}>
+                            <Alert message="Integration Successfully Created" type="success" showIcon closable className='altbox' />
+                        </Space>
+
             <p className='text-4xl mt-2'>Please check the status on the dashboard.</p>
             <Link to={'/'}>
             <Button

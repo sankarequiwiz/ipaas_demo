@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const base = 'http://localhost:8997';
+const base = 'http://192.168.29.111:8997';
 
 declare global {
      interface Window {
@@ -27,5 +27,5 @@ export const createIntegration = (payload: any) => {
 }
 
 export const searchRepos = (payload: any) => {
-     return axios.post(`http://13.91.123.121:8100/api/v1/scm/organizations/EQ-IPaaS/repositories/search`, payload, { headers: { ...withHeaders('', 'PORTAL'), integrationId: '1367ee1a-75e7-417a-ae49-dc1555c5d4b3' } })
+     return axios.post(`http://13.91.123.121:8100/api/v1/scm/organizations/search`, payload, { headers: { ...withHeaders('', 'PORTAL'), integrationId: '1367ee1a-75e7-417a-ae49-dc1555c5d4b3' } })
 }

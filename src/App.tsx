@@ -27,7 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Basepath />} />
           <Route path="/serviceProfiles/:profileId/integration/create" element={<Stepper />} />
-          <Route path="/Integration_completed" element={<IntegrationSuccess />} />
+          <Route path="/IntegrationCompleted" element={<IntegrationSuccess />} />
           <Route path="/ProviderAuthenticationCompleted" element={<ShowRepositories />} />
 
           

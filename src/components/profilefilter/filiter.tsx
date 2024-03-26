@@ -4,7 +4,7 @@ import { Checkbox } from 'antd';
 import API from './services/index';
 import { Card } from 'antd';
 import { Link } from 'react-router-dom';
-import { Input, Space,Button } from 'antd';
+import { Input, Space} from 'antd';
 import "./styles.scss"
 const { Meta } = Card;
 const { Search } = Input;
@@ -77,9 +77,9 @@ const FilterProfiles: React.FC = () => {
         <>
             <div className="globalbox_div">
                 <div className="globalbox_div_child">
-                    <h3 className="globalbox_div_child_1">Create an Integration to:</h3>
+                    <h3 className="globalbox_div_child_1">Search services to create an integration:</h3>
                     <Space direction="vertical" size= "middle">
-                            <Search  onChange={filiterbyNames} placeholder="Search Services" allowClear className='globalbox_div_child_2 ' />
+                            <Search  onChange={filiterbyNames} placeholder="Search services" allowClear className='globalbox_div_child_2 ' />
                     </Space>
                 </div>
 
@@ -94,10 +94,6 @@ const FilterProfiles: React.FC = () => {
                         className='filiter_main_div_child_1_sub'
                         style={{ display: 'flex', flexDirection: 'column' }}
                     />
-                    {/* <Link to="/ProviderAuthenticationCompleted">
-                    <Button>page</Button>
-                    </Link> */}
-                   
                 </div>
                 <div className='filiter_main_div_child_2'>
                     <p className="header">Frequent Integrations:</p>
@@ -109,7 +105,6 @@ const FilterProfiles: React.FC = () => {
                                 cover={<img alt="example" src={item.image.large} className='card_antd' />}
                             >
                                 <Meta title={item.name}  description={item.description}/>
-                                {/* <Meta description={item.description} className='description_lat'/> */}
                                 <Link to={`/serviceProfiles/${item.id}/integration/create`} className="service-link">
                                     <button >Select Service</button>
                                 </Link>
